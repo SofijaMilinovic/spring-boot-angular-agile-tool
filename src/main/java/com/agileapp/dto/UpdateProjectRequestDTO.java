@@ -1,24 +1,21 @@
 package com.agileapp.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
-public class CreateProjectRequestDTO {
+public class UpdateProjectRequestDTO {
 
-    @NotBlank(message="Project name is required")
-    @Size(max = 120, message = "Project name must not exceed 120 characters")
+    @Size(max=120, message = "Project name must not exceed 120 characters")
     private String name;
-    @NotNull(message = "Status id is required")
     private Integer statusId;
     private LocalDateTime startedAt;
     private LocalDateTime endAt;
 
+    @Size(max=120, message = "Description name must not exceed 120 characters")
     private String description;
 
-    public CreateProjectRequestDTO() {
+    public UpdateProjectRequestDTO() {
     }
 
     public String getName() {

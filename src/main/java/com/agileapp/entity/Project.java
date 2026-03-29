@@ -23,6 +23,9 @@ public class Project {
     @Column(name="updated_at", insertable = false, updatable = false)
     private LocalDateTime updatedAt;
 
+    @Column(length = 1000)
+    private String description;
+
     public Project() {
     }
 
@@ -80,6 +83,14 @@ public class Project {
 
     public void setProjectStatus(ProjectStatus projectStatus) {
         this.projectStatus = projectStatus;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)

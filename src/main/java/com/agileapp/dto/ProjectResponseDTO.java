@@ -12,12 +12,21 @@ public class ProjectResponseDTO {
     private LocalDateTime endAt;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private String description;
 
     public ProjectResponseDTO() {
     }
 
     public Integer getProjectId() {
         return projectId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setProjectId(Integer projectId) {

@@ -21,14 +21,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
+                .csrf(csrf -> csrf.disable()) //ne koristi se CSRF zastita
+                .authorizeHttpRequests(auth -> auth //inofmacije o tome za koji request je neophodna prijava a za koji ne
                         .requestMatchers("/auth/login").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/projects/**").permitAll()//ovaj endpoint je dostupan svima
+                        .anyRequest().authenticated() //svaki drugi request mora biti autentifikovan
                 )
                 .httpBasic(Customizer.withDefaults());
 
-        return http.build();
+        return http.build(); //ovde se cela konfiguracija završava i pretvara u SecurityFilterChain koji Spring koristi.
     }
 
 }

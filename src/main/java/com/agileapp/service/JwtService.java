@@ -22,11 +22,11 @@ public class JwtService {
 
     public String generateToken(String username) {
 
-        return Jwts.builder()
-                .setSubject(username)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
-                .signWith(getSigningKey())
-                .compact();
+        return Jwts.builder() //ovde se pokreće JWT builder pattern
+                .setSubject(username) // odnosi se na identitet korisnika i kome tooken pripada
+                .setIssuedAt(new Date()) //vreme kada je token napravljen
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) //token važi jedan sat
+                .signWith(getSigningKey()) //kriptografsko potpisivanje
+                .compact(); //ovde se pretvara u finalni string token
     }
 }

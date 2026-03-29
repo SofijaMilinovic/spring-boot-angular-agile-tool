@@ -9,6 +9,7 @@ public class ProjectMapper {
         ProjectResponseDTO dto = new ProjectResponseDTO();
         dto.setProjectId(project.getProjectId());
         dto.setName(project.getName());
+        dto.setDescription(project.getDescription());
         dto.setStartedAt(project.getStartedAt());
         dto.setEndAt(project.getEndAt());
         dto.setCreatedAt(project.getCreatedAt());
