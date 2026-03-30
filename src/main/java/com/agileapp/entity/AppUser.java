@@ -1,6 +1,8 @@
 package com.agileapp.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
 import java.time.LocalDateTime;
 
 
@@ -20,7 +22,8 @@ public class AppUser {
     @Column(name="full_name", nullable = false, length = 120)
     private String fullName;
 
-    @Column(name="created_at", insertable = false,updatable = false)
+    @CreationTimestamp
+    @Column(name="created_at",updatable = false)
     private LocalDateTime createdAt;
 
     public AppUser() {

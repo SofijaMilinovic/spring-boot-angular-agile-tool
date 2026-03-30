@@ -25,6 +25,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth //inofmacije o tome za koji request je neophodna prijava a za koji ne
                         .requestMatchers("/auth/login").permitAll()
                         .requestMatchers("/projects/**").permitAll()//ovaj endpoint je dostupan svima
+                        .requestMatchers("/users/**").permitAll()
                         .anyRequest().authenticated() //svaki drugi request mora biti autentifikovan
                 )
                 .httpBasic(Customizer.withDefaults());
