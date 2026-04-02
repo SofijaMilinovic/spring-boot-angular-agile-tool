@@ -26,6 +26,7 @@ public class SecurityConfig {
                         .requestMatchers("/auth/login").permitAll()
                         .requestMatchers("/projects/**").permitAll()//ovaj endpoint je dostupan svima
                         .requestMatchers("/users/**").permitAll()
+                        .requestMatchers("/tasks/**").permitAll()
                         .anyRequest().authenticated() //svaki drugi request mora biti autentifikovan
                 )
                 .httpBasic(Customizer.withDefaults());

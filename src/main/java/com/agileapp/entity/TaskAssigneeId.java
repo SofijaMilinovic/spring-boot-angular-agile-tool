@@ -1,10 +1,12 @@
 package com.agileapp.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 public class TaskAssigneeId implements Serializable {
 
     @Column(name="task_id")

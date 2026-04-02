@@ -20,8 +20,11 @@ public class Comment {
     private String text;
 
 
-    @Column(name="crated_at", insertable = false, updatable = false)
+    @Column(name="created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
+
+    @Column(name="updated_at",insertable = false, updatable = false)
+    private LocalDateTime updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id", nullable = false)
@@ -72,5 +75,13 @@ public class Comment {
 
     public void setUser(AppUser user) {
         this.user = user;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
