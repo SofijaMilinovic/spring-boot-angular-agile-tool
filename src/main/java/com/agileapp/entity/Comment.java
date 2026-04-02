@@ -11,14 +11,12 @@ public class Comment {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id")
     private Integer commentId;
 
-
     @Column(columnDefinition = "TEXT", nullable = false)
     private String text;
-
 
     @Column(name="created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
